@@ -9,7 +9,7 @@
 
 # #### 1.1. Importing Necessary Library
 
-# In[ ]:
+# In[1]:
 
 
 #All Necessary Library
@@ -288,7 +288,7 @@ def split_into_codon(random_sequence):
 
 # ##### 2.3. Function to Map Codons into Corresponding Amino Acid
 
-# In[ ]:
+# In[11]:
 
 
 def map_codon(split_codon):
@@ -300,7 +300,7 @@ def map_codon(split_codon):
 
 # #### Main Function
 
-# In[11]:
+# In[12]:
 
 
 def main():
@@ -310,7 +310,6 @@ def main():
         "Select one nucleic acid below:",
         sorted(Nucleic_Acid),
         captions = ["Deoxyribonucleic Acid","Ribonucleic Acid"])
-    st.write(acid)
     st.divider()
     st.header("Problem 1. Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA")
     st.subheader("Nitrogen base of selected Nucleic Acid")
