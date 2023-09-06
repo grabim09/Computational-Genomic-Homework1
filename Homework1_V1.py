@@ -258,6 +258,16 @@ def split_into_codon(random_sequence):
     return split_codon
 
 
+# In[ ]:
+
+
+def map_codon(split_codon, Genetic_Code):
+    for codon in split_codon:
+        for amino_acid, data in Genetic_Code.items():
+            if codon in data["Codon"]:
+                st.write(f"Codon {codon}: {amino_acid} ({data['Single_Letter']})")
+
+
 # In[11]:
 
 
@@ -283,6 +293,8 @@ def main():
     st.subheader("Splitting Sequence into Codons")
     split_codon = split_into_codon(random_sequence)
     st.write(split_codon)
+    st.subheader("Defining Amino Acid form Codons")
+    map_codon(split_codon, Genetic_Code)
     
 if __name__ == "__main__":
     main()
