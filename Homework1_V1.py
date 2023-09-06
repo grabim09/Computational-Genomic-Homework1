@@ -278,10 +278,10 @@ def main():
     sequences_length = st.number_input("Enter the number of sequences: ", min_value=3, step=3)
     st.write(sequences_length)
     st.subheader("Generated Random Sequence")
-    generate_random_sequence(acid,sequences_length)
+    random_sequence = generate_random_sequence(acid,sequences_length)
     st.write(random_sequence)
     st.subheader("Splitting Sequence into Codons")
-    split_into_codon(random_sequence)
+    split_codon = split_into_codon(random_sequence)
     st.write(split_codon)
     
 if __name__ == "__main__":
