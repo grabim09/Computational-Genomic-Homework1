@@ -16,7 +16,7 @@ import random as rand
 # In[2]:
 
 
-Nitrogen_Base_Dict = {
+Nitrogen_Base = {
     "Purines": {
         "Adenine",
         "Guanine"
@@ -29,52 +29,24 @@ Nitrogen_Base_Dict = {
 }
 
 
-# In[3]:
-
-
-print(Nitrogen_Base_Dict)
-
-
 # In[4]:
-
-
-print(Nitrogen_Base_Dict["Purines"])
-print(Nitrogen_Base_Dict["Pyrimidines"])
-
-
-# In[5]:
 
 
 Nucleic_Acid_Nitrogen_Base = {
     "DNA":{
-        "Purines": Nitrogen_Base_Dict["Purines"],
-        "Pyrimidines": Nitrogen_Base_Dict["Pyrimidines"] - {'Uracile'},
-        "Nitrogen Base Name": Nitrogen_Base_Dict["Purines"] | (Nitrogen_Base_Dict["Pyrimidines"] - {'Uracile'}),
+        "Purines": Nitrogen_Base["Purines"],
+        "Pyrimidines": Nitrogen_Base["Pyrimidines"] - {'Uracile'},
+        "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Uracile'}),
     },
     "RNA":{
-        "Purines": Nitrogen_Base_Dict["Purines"],
-        "Pyrimidines": Nitrogen_Base_Dict["Pyrimidines"] - {'Thymine'},
-        "Nitrogen Base Name": Nitrogen_Base_Dict["Purines"] | (Nitrogen_Base_Dict["Pyrimidines"] - {'Uracile'}),
+        "Purines": Nitrogen_Base["Purines"],
+        "Pyrimidines": Nitrogen_Base["Pyrimidines"] - {'Thymine'},
+        "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Uracile'}),
     }
 }
-Nucleic_Acid_Nitrogen_Base
 
 
-# In[6]:
-
-
-NANB = pd.DataFrame(Nucleic_Acid_Nitrogen_Base).T
-NANB
-
-
-# In[7]:
-
-
-result = Nucleic_Acid_Nitrogen_Base.get("DNA")
-result
-
-
-# In[8]:
+# In[5]:
 
 
 def nitrogen_base(molecule):
@@ -88,8 +60,6 @@ def nitrogen_base(molecule):
     else:
         print('Unknown Molecule')
     NBF = Pur | Pyr
-#     NBF = sorted(NBF)
-#     NBF = sorted(Pur | Pyr)
     NBC = set()
     for code in NBF:
         NBC.add(code[0])
@@ -103,30 +73,18 @@ def nitrogen_base(molecule):
 #     return random_string
 
 
-# In[9]:
-
-
-nitrogen_base('DNA')
-
-
-# In[10]:
-
-
-nitrogen_base('RNA')
-
-
-# In[ ]:
+# In[6]:
 
 
 def main():
-    st.title("Komputasi Genomik_Assignment 1_Armand Faris A Surbakti_5023201051")
+    st.title("07311940000046_Agra Bima Yuda_Genomics Computation_Homework 1")
     select = st.radio("Select an RNA or DNA sequence.", ("DNA", "RNA"))
     
 if __name__ == "__main__":
     main()
 
 
-# In[2]:
+# In[7]:
 
 
 Genetic_Code = {
@@ -259,19 +217,14 @@ Genetic_Code = {
 }
 
 
-# In[3]:
+# In[8]:
 
 
 GC = pd.DataFrame(Genetic_Code).T
-
-
-# In[4]:
-
-
 GC
 
 
-# In[5]:
+# In[9]:
 
 
 GC.info()
