@@ -261,11 +261,21 @@ def split_into_codon(random_sequence):
 # In[13]:
 
 
-def map_codon(split_codon, Genetic_Code):
+# def map_codon(split_codon, Genetic_Code):
+#     for codon in split_codon:
+#         for idx,data in Genetic_Code.items():
+#             if codon in data["Codon"]:
+#                 st.write(f"Codon {codon}: {idx} {data['Amino Acid']} ({data['Single_Letter']})")
+
+
+# In[ ]:
+
+
+def map_codon(split_codon):
     for codon in split_codon:
-        for idx,data in Genetic_Code.items():
-            if codon in data["Codon"]:
-                st.write(f"Codon {codon}: {idx} {data['Amino Acid']} ({data['Single_Letter']})")
+        for idx, ele in enumerate(GC.loc[:,'Codon']):
+            if codon in ele:
+                st.write(f"Codon {codon}: {GC.loc[count]['Amino Acid']} ({GC.loc[count]['Single_Letter']})")
 
 
 # In[11]:
@@ -318,12 +328,12 @@ print(enumerate(GC.loc[:,'Codon']))
 print(list(enumerate(GC.loc[:,'Codon'])))
 
 
-# In[15]:
+# In[14]:
 
 
 for count, ele in enumerate(GC.loc[:,'Codon']):
     if 'GTT' in ele:
-        print (count)
+        print(GC.loc[count]['Amino Acid'])
         break
 
 
@@ -338,4 +348,10 @@ GC.loc[count]['Amino Acid']
 
 for count, ele in enumerate(GC.loc[:,'Codon']):
     print (count, ele)
+
+
+# In[19]:
+
+
+GC.loc[2]['Amino Acid']
 
