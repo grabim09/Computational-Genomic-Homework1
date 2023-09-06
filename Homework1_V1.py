@@ -241,6 +241,15 @@ def nitrogen_base2(molecule):
     st.write('Nitrogen Base Code: ' + str(NBC))
 
 
+# In[16]:
+
+
+def generate_random_codon(molecule,length):
+    code = list(Nucleic_Acid_Nitrogen_Base[molecule]["Nitrogen Base Code"])
+    random_codon = ''.join(rand.choice(code) for i in range(length))
+    st.write(random_codon)
+
+
 # In[9]:
 
 
@@ -262,17 +271,9 @@ def main():
     st.write(sequences_count)
     st.subheader("Generated Random Codon")
     generate_random_codon(acid,sequences_count)
+    
 if __name__ == "__main__":
     main()
-
-
-# In[16]:
-
-
-def generate_random_codon(molecule,length):
-    code = list(Nucleic_Acid_Nitrogen_Base[molecule]["Nitrogen Base Code"])
-    random_codon = ''.join(rand.choice(code) for i in range(length))
-    st.write(random_codon)
 
 
 # In[19]:
