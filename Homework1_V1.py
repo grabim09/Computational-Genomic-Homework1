@@ -68,11 +68,11 @@ def nitrogen_base1(molecule):
 #     print('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
 #     print('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
 #     print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
-    st.write('Molecule Type: ' + molecule)
-    st.write('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
-    st.write('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
-    st.write('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
-    st.write('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
+    st.write("**Molecule Type: **" + molecule)
+    st.write("**Purines: **" + ', '.join(sorted(mol.get("Purines"))))
+    st.write("**Pyrimidines: **" + ', '.join(sorted(mol.get("Pyrimidines"))))
+    st.write("**Nitrogen Base Name: **" + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
+    st.write("**Nitrogen Base Code: **" + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
 
 
 # In[6]:
@@ -105,14 +105,16 @@ def nitrogen_base2(molecule):
 
 def main():
     st.title("07311940000046_Agra Bima Yuda_Genomics Computation_Homework 1")
+    st.divider()
     select = st.radio(
         "Select one nucleic acid below:",
         sorted(Nucleic_Acid),
         captions = ["Deoxyribonucleic Acid","Ribonucleic Acid"])
-    st.header("Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA")
+    st.divider()
+    st.header("Problem 1. Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA")
     st.subheader("Nitrogen base of selected Nucleic Acid")
     nitrogen_base1(select)
-    
+    st.divider()
 if __name__ == "__main__":
     main()
 
