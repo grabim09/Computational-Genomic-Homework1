@@ -270,7 +270,6 @@ GC = pd.DataFrame(Genetic_Code).T
 
 def generate_random_codon(molecule,length):
     code = list(Nucleic_Acid_Nitrogen_Base[molecule]["Nitrogen Base Code"])
-    random
     random_codon = ''.join(rand.choice(code) for i in range(length))
     st.write(random_codon)
 
