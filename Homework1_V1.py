@@ -1,7 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# # 07311940000046_Agra Bima Yuda_Genomics Computation_Homework 1
+
+# ## This python program will solve all problem given by Homework 1 of Genomics Computation Subject
+
+# ### 1. Preparation
+
+# #### 1.1. Importing Necessary Library
+
+# In[ ]:
 
 
 #All Necessary Library
@@ -10,6 +18,8 @@ import numpy as np
 import pandas as pd
 import random as rand
 
+
+# #### 1.2. Creating Genetic Code Data from Publicly Available Source
 
 # In[2]:
 
@@ -150,13 +160,19 @@ Genetic_Code = {
 GC = pd.DataFrame(Genetic_Code).T
 
 
-# ## Soal 1
+# ### Solution
+
+# #### Problem 1. Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA
+
+# ##### 1.1. Defining All Nucleic Acid
 
 # In[4]:
 
 
 Nucleic_Acid = {"DNA","RNA"}
 
+
+# ###### 1.2. Defining All Nitrogen Base
 
 # In[5]:
 
@@ -173,6 +189,8 @@ Nitrogen_Base = {
     }
 }
 
+
+# ##### 1.3. Defining Nitrogen Base of Each Nucleic Acid
 
 # In[6]:
 
@@ -197,10 +215,12 @@ for code in Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Name"]:
     Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Code"].add(code[0])
 
 
+# ##### 1.4. Function to Return Nitrogen Base Details of Chosen Nucleic Acid in Streamlit
+
 # In[7]:
 
 
-def nitrogen_base1(molecule):
+def nitrogen_base(molecule):
     mol = Nucleic_Acid_Nitrogen_Base.get(molecule)
 #     print('Molecule Type: ' + molecule)
 #     print('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
@@ -213,6 +233,8 @@ def nitrogen_base1(molecule):
     st.write('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
     st.write('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
 
+
+# ##### 1.4.a Alterncative Function to Return Nitrogen Base Details of Chosen Nucleic Acid in Streamlit
 
 # In[8]:
 
@@ -241,6 +263,10 @@ def nitrogen_base2(molecule):
     st.write('Nitrogen Base Code: ' + str(NBC))
 
 
+# #### Problem 2. Write a program that lists all the DNA and RNA sequences that encode a given protein sequences
+
+# ##### 2.1. Function to Generate Random Protein Sequence
+
 # In[9]:
 
 
@@ -250,6 +276,8 @@ def generate_random_sequence(acid,length):
     return random_sequence
 
 
+# ##### 2.2. Function to Split Random Protein Sequence into Codons
+
 # In[10]:
 
 
@@ -258,15 +286,7 @@ def split_into_codon(random_sequence):
     return split_codon
 
 
-# In[13]:
-
-
-# def map_codon(split_codon, Genetic_Code):
-#     for codon in split_codon:
-#         for idx,data in Genetic_Code.items():
-#             if codon in data["Codon"]:
-#                 st.write(f"Codon {codon}: {idx} {data['Amino Acid']} ({data['Single_Letter']})")
-
+# ##### 2.3. Function to Map Codons into Corresponding Amino Acid
 
 # In[ ]:
 
@@ -277,6 +297,8 @@ def map_codon(split_codon):
             if codon in ele:
                 st.write(f"Codon {codon}: {GC.loc[idx]['Amino Acid']} ({GC.loc[idx]['Single_Letter']})")
 
+
+# #### Main Function
 
 # In[11]:
 
@@ -292,7 +314,7 @@ def main():
     st.divider()
     st.header("Problem 1. Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA")
     st.subheader("Nitrogen base of selected Nucleic Acid")
-    nitrogen_base1(acid)
+    nitrogen_base(acid)
     st.divider()
     st.header("Problem 2. Write a program that lists all the DNA and RNA sequences that encode a given protein sequences")
     sequences_length = st.number_input("Enter the number of sequences: ", min_value=3, step=3)
@@ -304,55 +326,8 @@ def main():
     split_codon = split_into_codon(random_sequence)
     st.write(split_codon)
     st.subheader("Defining Amino Acid form Codons")
-#     map_codon(split_codon, Genetic_Code)
     map_codon(split_codon)
     
 if __name__ == "__main__":
     main()
-
-
-# In[12]:
-
-
-Genetic_Code.items()
-
-
-# In[13]:
-
-
-print(enumerate(GC.loc[:,'Codon']))
-
-
-# In[14]:
-
-
-print(list(enumerate(GC.loc[:,'Codon'])))
-
-
-# In[14]:
-
-
-for count, ele in enumerate(GC.loc[:,'Codon']):
-    if 'GTT' in ele:
-        print(GC.loc[count]['Amino Acid'])
-        break
-
-
-# In[16]:
-
-
-GC.loc[count]['Amino Acid']
-
-
-# In[15]:
-
-
-for count, ele in enumerate(GC.loc[:,'Codon']):
-    print (count, ele)
-
-
-# In[19]:
-
-
-GC.loc[2]['Amino Acid']
 
