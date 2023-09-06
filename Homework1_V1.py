@@ -68,8 +68,7 @@ def nitrogen_base1(molecule):
 #     print('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
 #     print('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
 #     print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
-    st.write(f"**Molecule Type: **")
-#     st.write('**Molecule Type: **' + molecule)
+    st.write('Molecule Type: ' + molecule)
     st.write('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
     st.write('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
     st.write('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
@@ -101,9 +100,6 @@ def nitrogen_base2(molecule):
     st.write('Pyrimidines: ' + str(Pyr))
     st.write('Nitrogen Base Name: ' + str(NBF))
     st.write('Nitrogen Base Code: ' + str(NBC))
-#     letters = list(NBC)
-#     random_string = ''.join(rand.choice(letters) for i in range(3))
-#     return random_string
 
 
 # In[9]:
@@ -121,11 +117,14 @@ def main():
     st.subheader("Nitrogen base of selected Nucleic Acid")
     nitrogen_base1(select)
     st.divider()
+    st.header("Problem 2. Write a program that lists all the DNA and RNA sequences that encode a given protein sequences")
+    sequences_count = st.number_input("Enter the number of sequences: ", min_value=3, step=3)
+    st.write(sequences_count)
 if __name__ == "__main__":
     main()
 
 
-# In[7]:
+# In[14]:
 
 
 Genetic_Code = {
@@ -258,28 +257,32 @@ Genetic_Code = {
 }
 
 
-# In[8]:
+# In[15]:
 
 
 GC = pd.DataFrame(Genetic_Code).T
-GC
+
+
+# In[16]:
+
+
+def generate_random_codon(molecule,length):
+    code = list(Nucleic_Acid_Nitrogen_Base[molecule]["Nitrogen Base Code"])
+    random
+    random_codon = ''.join(rand.choice(code) for i in range(length))
+    return random_codon
+
+
+# In[13]:
+
+
+generate_random_codon("RNA",9)
 
 
 # In[9]:
 
 
 GC.info()
-
-
-# In[ ]:
-
-
-def generate_random_codon(molecule,length):
-    # Get all the ASCII letters in lowercase and uppercase
-    letters = string.ascii_letters
-    # Randomly choose characters from letters for the given length of the string
-    random_string = ''.join(random.choice(letters) for i in range(length))
-    return random_string
 
 
 # In[6]:
