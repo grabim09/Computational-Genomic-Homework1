@@ -11,119 +11,6 @@ import pandas as pd
 import random as rand
 
 
-# ## Soal 1
-
-# In[2]:
-
-
-Nucleic_Acid = {"DNA","RNA"}
-
-
-# In[3]:
-
-
-Nitrogen_Base = {
-    "Purines": {
-        "Adenine",
-        "Guanine"
-    },
-    "Pyrimidines": {
-        "Cytosine",
-        "Thymine",
-        "Uracile"
-    }
-}
-
-
-# In[4]:
-
-
-Nucleic_Acid_Nitrogen_Base = {
-    "DNA":{
-        "Purines": Nitrogen_Base["Purines"],
-        "Pyrimidines": Nitrogen_Base["Pyrimidines"] - {'Uracile'},
-        "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Uracile'}),
-        "Nitrogen Base Code": set()
-    },
-    "RNA":{
-        "Purines": Nitrogen_Base["Purines"],
-        "Pyrimidines": Nitrogen_Base["Pyrimidines"] - {'Thymine'},
-        "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Thymine'}),
-        "Nitrogen Base Code": set()
-    }
-}
-for code in Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Name"]:
-    Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Code"].add(code[0])
-for code in Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Name"]:
-    Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Code"].add(code[0])
-
-
-# In[5]:
-
-
-def nitrogen_base1(molecule):
-    mol = Nucleic_Acid_Nitrogen_Base.get(molecule)
-#     print('Molecule Type: ' + molecule)
-#     print('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
-#     print('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
-#     print('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
-#     print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
-    st.write('Molecule Type: ' + molecule)
-    st.write('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
-    st.write('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
-    st.write('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
-    st.write('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
-
-
-# In[6]:
-
-
-def nitrogen_base2(molecule):
-    Purines = Nitrogen_Base["Purines"]
-    Pur = Purines
-    Pyrimidines = Nitrogen_Base["Pyrimidines"]
-    if molecule == 'DNA':
-        Pyr = Pyrimidines - {'Uracile'}
-    elif molecule == 'RNA':
-        Pyr = Pyrimidines - {'Thymine'}
-    NBF = Pur | Pyr
-    NBC = set()
-    for code in NBF:
-        NBC.add(code[0])
-#     print('Molecule Type: ' + molecule)
-#     print('Purines: ' + str(Pur))
-#     print('Pyrimidines: ' + str(Pyr))
-#     print('Nitrogen Base Name: ' + str(NBF))
-#     print('Nitrogen Base Code: ' + str(NBC))
-    st.write('Molecule Type: ' + molecule)
-    st.write('Purines: ' + str(Pur))
-    st.write('Pyrimidines: ' + str(Pyr))
-    st.write('Nitrogen Base Name: ' + str(NBF))
-    st.write('Nitrogen Base Code: ' + str(NBC))
-
-
-# In[9]:
-
-
-def main():
-    st.title("07311940000046_Agra Bima Yuda_Genomics Computation_Homework 1")
-    st.divider()
-    select = st.radio(
-        "Select one nucleic acid below:",
-        sorted(Nucleic_Acid),
-        captions = ["Deoxyribonucleic Acid","Ribonucleic Acid"])
-    st.divider()
-    st.header("Problem 1. Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA")
-    st.subheader("Nitrogen base of selected Nucleic Acid")
-    nitrogen_base1(select)
-    st.divider()
-    st.header("Problem 2. Write a program that lists all the DNA and RNA sequences that encode a given protein sequences")
-    sequences_count = st.number_input("Enter the number of sequences: ", min_value=3, step=3)
-    st.write(sequences_count)
-if __name__ == "__main__":
-    main()
-
-
 # In[14]:
 
 
@@ -257,6 +144,121 @@ Genetic_Code = {
 }
 
 
+# ## Soal 1
+
+# In[2]:
+
+
+Nucleic_Acid = {"DNA","RNA"}
+
+
+# In[3]:
+
+
+Nitrogen_Base = {
+    "Purines": {
+        "Adenine",
+        "Guanine"
+    },
+    "Pyrimidines": {
+        "Cytosine",
+        "Thymine",
+        "Uracile"
+    }
+}
+
+
+# In[4]:
+
+
+Nucleic_Acid_Nitrogen_Base = {
+    "DNA":{
+        "Purines": Nitrogen_Base["Purines"],
+        "Pyrimidines": Nitrogen_Base["Pyrimidines"] - {'Uracile'},
+        "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Uracile'}),
+        "Nitrogen Base Code": set()
+    },
+    "RNA":{
+        "Purines": Nitrogen_Base["Purines"],
+        "Pyrimidines": Nitrogen_Base["Pyrimidines"] - {'Thymine'},
+        "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Thymine'}),
+        "Nitrogen Base Code": set()
+    }
+}
+for code in Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Name"]:
+    Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Code"].add(code[0])
+for code in Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Name"]:
+    Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Code"].add(code[0])
+
+
+# In[5]:
+
+
+def nitrogen_base1(molecule):
+    mol = Nucleic_Acid_Nitrogen_Base.get(molecule)
+#     print('Molecule Type: ' + molecule)
+#     print('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
+#     print('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
+#     print('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
+#     print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
+    st.write('Molecule Type: ' + molecule)
+    st.write('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
+    st.write('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
+    st.write('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
+    st.write('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
+
+
+# In[6]:
+
+
+def nitrogen_base2(molecule):
+    Purines = Nitrogen_Base["Purines"]
+    Pur = Purines
+    Pyrimidines = Nitrogen_Base["Pyrimidines"]
+    if molecule == 'DNA':
+        Pyr = Pyrimidines - {'Uracile'}
+    elif molecule == 'RNA':
+        Pyr = Pyrimidines - {'Thymine'}
+    NBF = Pur | Pyr
+    NBC = set()
+    for code in NBF:
+        NBC.add(code[0])
+#     print('Molecule Type: ' + molecule)
+#     print('Purines: ' + str(Pur))
+#     print('Pyrimidines: ' + str(Pyr))
+#     print('Nitrogen Base Name: ' + str(NBF))
+#     print('Nitrogen Base Code: ' + str(NBC))
+    st.write('Molecule Type: ' + molecule)
+    st.write('Purines: ' + str(Pur))
+    st.write('Pyrimidines: ' + str(Pyr))
+    st.write('Nitrogen Base Name: ' + str(NBF))
+    st.write('Nitrogen Base Code: ' + str(NBC))
+
+
+# In[9]:
+
+
+def main():
+    st.title("07311940000046_Agra Bima Yuda_Genomics Computation_Homework 1")
+    st.divider()
+    acid = st.radio(
+        "Select one nucleic acid below:",
+        sorted(Nucleic_Acid),
+        captions = ["Deoxyribonucleic Acid","Ribonucleic Acid"])
+    st.divider()
+    st.header("Problem 1. Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA")
+    st.subheader("Nitrogen base of selected Nucleic Acid")
+    nitrogen_base1(acid)
+    st.divider()
+    st.header("Problem 2. Write a program that lists all the DNA and RNA sequences that encode a given protein sequences")
+    sequences_count = st.number_input("Enter the number of sequences: ", min_value=3, step=3)
+    st.write(sequences_count)
+    st.subheader("Generated Random Codon")
+    generate_random_codon(acid,sequences_count)
+if __name__ == "__main__":
+    main()
+
+
 # In[15]:
 
 
@@ -270,7 +272,7 @@ def generate_random_codon(molecule,length):
     code = list(Nucleic_Acid_Nitrogen_Base[molecule]["Nitrogen Base Code"])
     random
     random_codon = ''.join(rand.choice(code) for i in range(length))
-    return random_codon
+    st.write(random_codon)
 
 
 # In[13]:
