@@ -158,7 +158,6 @@ Genetic_Code = {
 
 
 GC = pd.DataFrame(Genetic_Code).T
-GC
 
 
 # ### Solution
