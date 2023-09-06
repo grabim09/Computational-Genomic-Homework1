@@ -11,7 +11,7 @@ import pandas as pd
 import random as rand
 
 
-# In[14]:
+# In[2]:
 
 
 Genetic_Code = {
@@ -144,7 +144,7 @@ Genetic_Code = {
 }
 
 
-# In[15]:
+# In[3]:
 
 
 GC = pd.DataFrame(Genetic_Code).T
@@ -152,13 +152,13 @@ GC = pd.DataFrame(Genetic_Code).T
 
 # ## Soal 1
 
-# In[2]:
+# In[4]:
 
 
 Nucleic_Acid = {"DNA","RNA"}
 
 
-# In[3]:
+# In[5]:
 
 
 Nitrogen_Base = {
@@ -174,7 +174,7 @@ Nitrogen_Base = {
 }
 
 
-# In[4]:
+# In[6]:
 
 
 Nucleic_Acid_Nitrogen_Base = {
@@ -197,7 +197,7 @@ for code in Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Name"]:
     Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Code"].add(code[0])
 
 
-# In[5]:
+# In[7]:
 
 
 def nitrogen_base1(molecule):
@@ -214,7 +214,7 @@ def nitrogen_base1(molecule):
     st.write('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
 
 
-# In[6]:
+# In[8]:
 
 
 def nitrogen_base2(molecule):
@@ -241,7 +241,7 @@ def nitrogen_base2(molecule):
     st.write('Nitrogen Base Code: ' + str(NBC))
 
 
-# In[16]:
+# In[9]:
 
 
 def generate_random_sequence(acid,length):
@@ -250,7 +250,7 @@ def generate_random_sequence(acid,length):
     return random_sequence
 
 
-# In[20]:
+# In[10]:
 
 
 def split_into_codon(random_sequence):
@@ -258,7 +258,7 @@ def split_into_codon(random_sequence):
     return split_codon
 
 
-# In[9]:
+# In[11]:
 
 
 def main():
