@@ -247,7 +247,7 @@ def nitrogen_base2(molecule):
 def generate_random_sequence(acid,length):
     code = list(Nucleic_Acid_Nitrogen_Base[acid]["Nitrogen Base Code"])
     random_sequence = ''.join(rand.choice(code) for i in range(length))
-    st.write(random_sequence)
+    return random_sequence
 
 
 # In[20]:
@@ -255,7 +255,7 @@ def generate_random_sequence(acid,length):
 
 def split_into_codon(random_sequence):
     split_codon = [str[i:i+3] for i in range(0,len(random_sequence),3)]
-    st.write(split_codon)
+    return split_codon
 
 
 # In[9]:
@@ -279,8 +279,10 @@ def main():
     st.write(sequences_length)
     st.subheader("Generated Random Sequence")
     generate_random_sequence(acid,sequences_length)
+    st.write(random_sequence)
     st.subheader("Splitting Sequence into Codons")
     split_into_codon(random_sequence)
+    st.write(split_codon)
     
 if __name__ == "__main__":
     main()
