@@ -109,10 +109,8 @@ def main():
         "Select one nucleic acid below:",
         sorted(Nucleic_Acid),
         captions = ["Deoxyribonucleic Acid","Ribonucleic Acid"])
-    if select == "DNA":
-        st.write("You selected DNA.")
-    else:
-        st.write("You selected RNA.")
+    st.header("Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA")
+    st.subheader("Nitrogen base of selected Nucleic Acid")
     nitrogen_base1(select)
     
 if __name__ == "__main__":
