@@ -68,11 +68,11 @@ def nitrogen_base1(molecule):
 #     print('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
 #     print('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
 #     print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
-    st.write(f"**Molecule Type: **" + molecule)
-    st.write(f"**Purines: **" + ', '.join(sorted(mol.get("Purines"))))
-    st.write(f"**Pyrimidines: **" + ', '.join(sorted(mol.get("Pyrimidines"))))
-    st.write(f"**Nitrogen Base Name: **" + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
-    st.write(f"**Nitrogen Base Code: **" + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
+    st.write('**Molecule Type: **' + molecule)
+    st.write('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
+    st.write('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
+    st.write('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
+    st.write('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
 
 
 # In[6]:
@@ -90,11 +90,16 @@ def nitrogen_base2(molecule):
     NBC = set()
     for code in NBF:
         NBC.add(code[0])
-    print('Molecule Type: ' + molecule)
-    print('Purines: ' + str(Pur))
-    print('Pyrimidines: ' + str(Pyr))
-    print('Nitrogen Base Name: ' + str(NBF))
-    print('Nitrogen Base Code: ' + str(NBC))
+#     print('Molecule Type: ' + molecule)
+#     print('Purines: ' + str(Pur))
+#     print('Pyrimidines: ' + str(Pyr))
+#     print('Nitrogen Base Name: ' + str(NBF))
+#     print('Nitrogen Base Code: ' + str(NBC))
+    st.write('Molecule Type: ' + molecule)
+    st.write('Purines: ' + str(Pur))
+    st.write('Pyrimidines: ' + str(Pyr))
+    st.write('Nitrogen Base Name: ' + str(NBF))
+    st.write('Nitrogen Base Code: ' + str(NBC))
 #     letters = list(NBC)
 #     random_string = ''.join(rand.choice(letters) for i in range(3))
 #     return random_string
