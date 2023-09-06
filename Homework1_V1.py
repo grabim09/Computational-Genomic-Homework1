@@ -275,7 +275,7 @@ def map_codon(split_codon):
     for codon in split_codon:
         for idx, ele in enumerate(GC.loc[:,'Codon']):
             if codon in ele:
-                st.write(f"Codon {codon}: {GC.loc[count]['Amino Acid']} ({GC.loc[count]['Single_Letter']})")
+                st.write(f"Codon {codon}: {GC.loc[idx]['Amino Acid']} ({GC.loc[idx]['Single_Letter']})")
 
 
 # In[11]:
