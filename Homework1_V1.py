@@ -63,11 +63,16 @@ for code in Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Name"]:
 
 def nitrogen_base1(molecule):
     mol = Nucleic_Acid_Nitrogen_Base.get(molecule)
-    print('Molecule Type: ' + molecule)
-    print('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
-    print('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
-    print('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
-    print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
+#     print('Molecule Type: ' + molecule)
+#     print('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
+#     print('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
+#     print('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
+#     print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
+    st.write('Molecule Type: ' + molecule)
+    st.write('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
+    st.write('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
+    st.write('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
+    st.write('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
 
 
 # In[6]:
@@ -108,7 +113,7 @@ def main():
         st.write("You selected DNA.")
     else:
         st.write("You selected RNA.")
-    st.write(nitrogen_base1(select))
+    nitrogen_base1(select)
     
 if __name__ == "__main__":
     main()
