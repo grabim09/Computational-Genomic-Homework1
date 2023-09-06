@@ -304,7 +304,8 @@ def main():
     split_codon = split_into_codon(random_sequence)
     st.write(split_codon)
     st.subheader("Defining Amino Acid form Codons")
-    map_codon(split_codon, Genetic_Code)
+#     map_codon(split_codon, Genetic_Code)
+    map_codon(split_codon)
     
 if __name__ == "__main__":
     main()
