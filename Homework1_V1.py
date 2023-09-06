@@ -263,9 +263,9 @@ def split_into_codon(random_sequence):
 
 def map_codon(split_codon, Genetic_Code):
     for codon in split_codon:
-        for data in Genetic_Code.items():
+        for idx,data in Genetic_Code.items():
             if codon in data["Codon"]:
-                st.write(f"Codon {codon}: {data['Amino_Acid']} ({data['Single_Letter']})")
+                st.write(f"Codon {codon}: {idx} {data['Amino Acid']} ({data['Single_Letter']})")
 
 
 # In[11]:
