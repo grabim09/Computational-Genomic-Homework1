@@ -144,6 +144,12 @@ Genetic_Code = {
 }
 
 
+# In[15]:
+
+
+GC = pd.DataFrame(Genetic_Code).T
+
+
 # ## Soal 1
 
 # In[2]:
@@ -245,6 +251,7 @@ def main():
         "Select one nucleic acid below:",
         sorted(Nucleic_Acid),
         captions = ["Deoxyribonucleic Acid","Ribonucleic Acid"])
+    st.write(acid)
     st.divider()
     st.header("Problem 1. Using concept of set and related commands in Programming Language, write a program to list the nitrogen base of DNA and RNA")
     st.subheader("Nitrogen base of selected Nucleic Acid")
@@ -259,12 +266,6 @@ if __name__ == "__main__":
     main()
 
 
-# In[15]:
-
-
-GC = pd.DataFrame(Genetic_Code).T
-
-
 # In[16]:
 
 
@@ -274,59 +275,18 @@ def generate_random_codon(molecule,length):
     st.write(random_codon)
 
 
+# In[19]:
+
+
+code = list(Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Code"])
+random_codon = ''.join(rand.choice(code) for i in range(9))
+random_codon
+
+
 # In[13]:
 
 
 generate_random_codon("RNA",9)
-
-
-# In[9]:
-
-
-GC.info()
-
-
-# In[6]:
-
-
-row = GC[GC['Amino Acid'] == 'Valine'].index[0]
-row
-
-
-# In[7]:
-
-
-GC.loc[3]['Codon']
-
-
-# In[8]:
-
-
-GC.loc[GC[GC['Amino Acid'] == 'Valine'].index[0]]['Codon']
-
-
-# In[9]:
-
-
-GC.loc[GC['Amino Acid'] == 'Valine']
-
-
-# In[10]:
-
-
-GC.loc[:,'Codon']
-
-
-# In[11]:
-
-
-GC.loc[GC[GC['Amino Acid'] == 'Valine'].index[0]]['Codon'].index('GTT')
-
-
-# In[12]:
-
-
-GC.loc[GC[GC['Amino Acid'] == 'Valine'].index[0]]['Codon'][0]
 
 
 # In[13]:
@@ -361,10 +321,4 @@ GC.loc[count]['Amino Acid']
 
 for count, ele in enumerate(GC.loc[:,'Codon']):
     print (count, ele)
-
-
-# In[35]:
-
-
-i = s.index[GC.loc[GC[GC['Amino Acid'] == 'Valine'].index[0]]['Codon'].str.contains('GTT')]
 
