@@ -17,13 +17,6 @@ import random as rand
 
 
 Nucleic_Acid = {"DNA","RNA"}
-Nucleic_Acid
-
-
-# In[78]:
-
-
-type(Nucleic_Acid)
 
 
 # In[2]:
@@ -133,9 +126,12 @@ result2
 
 def main():
     st.title("07311940000046_Agra Bima Yuda_Genomics Computation_Homework 1")
-    select = st.radio("Select an RNA or DNA sequence.", Nucleic_Acid)
+    select = st.radio(
+        "Select an RNA or DNA sequence.",
+        sorted(Nucleic_Acid),
+        captions = ["Deoxyribonucleic Acid","Ribonucleic Acid"])
     if select == "DNA":
-        st.write('You selected DNA.')
+        st.write("You selected DNA.")
     else:
         st.write("You selected RNA.")
     
