@@ -13,13 +13,13 @@ import random as rand
 
 # ## Soal 1
 
-# In[77]:
+# In[2]:
 
 
 Nucleic_Acid = {"DNA","RNA"}
 
 
-# In[2]:
+# In[3]:
 
 
 Nitrogen_Base = {
@@ -35,7 +35,7 @@ Nitrogen_Base = {
 }
 
 
-# In[55]:
+# In[4]:
 
 
 Nucleic_Acid_Nitrogen_Base = {
@@ -58,19 +58,7 @@ for code in Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Name"]:
     Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Code"].add(code[0])
 
 
-# In[58]:
-
-
-Nucleic_Acid_Nitrogen_Base.get("DNA")
-
-
-# In[52]:
-
-
-type(Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Code"])
-
-
-# In[72]:
+# In[5]:
 
 
 def nitrogen_base1(molecule):
@@ -82,14 +70,7 @@ def nitrogen_base1(molecule):
     print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
 
 
-# In[73]:
-
-
-result = nitrogen_base1("RNA")
-result
-
-
-# In[34]:
+# In[6]:
 
 
 def nitrogen_base2(molecule):
@@ -114,36 +95,20 @@ def nitrogen_base2(molecule):
 #     return random_string
 
 
-# In[35]:
-
-
-result2 = nitrogen_base2("DNA")
-result2
-
-
-# In[82]:
+# In[9]:
 
 
 def main():
     st.title("07311940000046_Agra Bima Yuda_Genomics Computation_Homework 1")
     select = st.radio(
-        "Select an RNA or DNA sequence.",
+        "Select one nucleic acid below:",
         sorted(Nucleic_Acid),
         captions = ["Deoxyribonucleic Acid","Ribonucleic Acid"])
     if select == "DNA":
         st.write("You selected DNA.")
     else:
         st.write("You selected RNA.")
-    
-#     genre = st.radio(
-#     "What's your favorite movie genre",
-#     [":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"],
-#     captions = ["Laugh out loud.", "Get the popcorn.", "Never stop learning."])
-
-# if genre == ':rainbow[Comedy]':
-#     st.write('You selected comedy.')
-# else:
-#     st.write("You didn\'t select comedy.")
+    st.write(nitrogen_base1(select))
     
 if __name__ == "__main__":
     main()
