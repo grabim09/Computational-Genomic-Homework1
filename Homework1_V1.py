@@ -244,10 +244,18 @@ def nitrogen_base2(molecule):
 # In[16]:
 
 
-def generate_random_codon(molecule,length):
-    code = list(Nucleic_Acid_Nitrogen_Base[molecule]["Nitrogen Base Code"])
-    random_codon = ''.join(rand.choice(code) for i in range(length))
-    st.write(random_codon)
+def generate_random_sequence(acid,length):
+    code = list(Nucleic_Acid_Nitrogen_Base[acid]["Nitrogen Base Code"])
+    random_sequence = ''.join(rand.choice(code) for i in range(length))
+    st.write(random_sequence)
+
+
+# In[20]:
+
+
+def split_into_codon(random_sequence):
+    split_codon = [str[i:i+3] for i in range(0,len(random_sequence),3)]
+    st.write(split_codon)
 
 
 # In[9]:
@@ -267,27 +275,15 @@ def main():
     nitrogen_base1(acid)
     st.divider()
     st.header("Problem 2. Write a program that lists all the DNA and RNA sequences that encode a given protein sequences")
-    sequences_count = st.number_input("Enter the number of sequences: ", min_value=3, step=3)
-    st.write(sequences_count)
-    st.subheader("Generated Random Codon")
-    generate_random_codon(acid,sequences_count)
+    sequences_length = st.number_input("Enter the number of sequences: ", min_value=3, step=3)
+    st.write(sequences_length)
+    st.subheader("Generated Random Sequence")
+    generate_random_codon(acid,sequences_length)
+    st.subheader("Splitting Sequence into Codons")
+    split_into_codon(random_sequence)
     
 if __name__ == "__main__":
     main()
-
-
-# In[19]:
-
-
-code = list(Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Code"])
-random_codon = ''.join(rand.choice(code) for i in range(9))
-random_codon
-
-
-# In[13]:
-
-
-generate_random_codon("RNA",9)
 
 
 # In[13]:
