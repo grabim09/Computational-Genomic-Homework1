@@ -70,9 +70,9 @@ def nitrogen_base1(molecule):
 #     print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
     st.write("**Molecule Type: **" + molecule)
     st.write("**Purines: **" + ', '.join(sorted(mol.get("Purines"))))
-    st.write("**Pyrimidines: **" + ', '.join(sorted(mol.get("Pyrimidines"))))
-    st.write("**Nitrogen Base Name: **" + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
-    st.write("**Nitrogen Base Code: **" + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
+    st.write('**Pyrimidines: **' + ', '.join(sorted(mol.get("Pyrimidines"))))
+    st.write('**Nitrogen Base Name: **' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
+    st.write('**Nitrogen Base Code: **' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
 
 
 # In[6]:
