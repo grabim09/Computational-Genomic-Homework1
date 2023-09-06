@@ -154,10 +154,11 @@ Genetic_Code = {
 }
 
 
-# In[3]:
+# In[13]:
 
 
 GC = pd.DataFrame(Genetic_Code).T
+GC
 
 
 # ### Solution
@@ -293,8 +294,9 @@ def split_into_codon(random_sequence):
 
 def map_codon(split_codon):
     for codon in split_codon:
+        temp = codon.replace("U","T")
         for idx, ele in enumerate(GC.loc[:,'Codon']):
-            if codon in ele:
+            if temp in ele:
                 st.write(f"Codon {codon}: {GC.loc[idx]['Amino Acid']} ({GC.loc[idx]['Single_Letter']})")
 
 
