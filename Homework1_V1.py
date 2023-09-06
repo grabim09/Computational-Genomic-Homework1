@@ -13,6 +13,19 @@ import random as rand
 
 # ## Soal 1
 
+# In[77]:
+
+
+Nucleic_Acid = {"DNA","RNA"}
+Nucleic_Acid
+
+
+# In[78]:
+
+
+type(Nucleic_Acid)
+
+
 # In[2]:
 
 
@@ -29,7 +42,7 @@ Nitrogen_Base = {
 }
 
 
-# In[4]:
+# In[55]:
 
 
 Nucleic_Acid_Nitrogen_Base = {
@@ -37,28 +50,63 @@ Nucleic_Acid_Nitrogen_Base = {
         "Purines": Nitrogen_Base["Purines"],
         "Pyrimidines": Nitrogen_Base["Pyrimidines"] - {'Uracile'},
         "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Uracile'}),
+        "Nitrogen Base Code": set()
     },
     "RNA":{
         "Purines": Nitrogen_Base["Purines"],
         "Pyrimidines": Nitrogen_Base["Pyrimidines"] - {'Thymine'},
-        "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Uracile'}),
+        "Nitrogen Base Name": Nitrogen_Base["Purines"] | (Nitrogen_Base["Pyrimidines"] - {'Thymine'}),
+        "Nitrogen Base Code": set()
     }
 }
+for code in Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Name"]:
+    Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Code"].add(code[0])
+for code in Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Name"]:
+    Nucleic_Acid_Nitrogen_Base["RNA"]["Nitrogen Base Code"].add(code[0])
 
 
-# In[5]:
+# In[58]:
 
 
-def nitrogen_base(molecule):
-    Purines = Nitrogen_Base_Dict["Purines"]
+Nucleic_Acid_Nitrogen_Base.get("DNA")
+
+
+# In[52]:
+
+
+type(Nucleic_Acid_Nitrogen_Base["DNA"]["Nitrogen Base Code"])
+
+
+# In[72]:
+
+
+def nitrogen_base1(molecule):
+    mol = Nucleic_Acid_Nitrogen_Base.get(molecule)
+    print('Molecule Type: ' + molecule)
+    print('Purines: ' + ', '.join(sorted(mol.get("Purines"))))
+    print('Pyrimidines: ' + ', '.join(sorted(mol.get("Pyrimidines"))))
+    print('Nitrogen Base Name: ' + ', '.join(sorted(mol.get("Nitrogen Base Name"))))
+    print('Nitrogen Base Code: ' + ', '.join(sorted(mol.get("Nitrogen Base Code"))))
+
+
+# In[73]:
+
+
+result = nitrogen_base1("RNA")
+result
+
+
+# In[34]:
+
+
+def nitrogen_base2(molecule):
+    Purines = Nitrogen_Base["Purines"]
     Pur = Purines
-    Pyrimidines = Nitrogen_Base_Dict["Pyrimidines"]
+    Pyrimidines = Nitrogen_Base["Pyrimidines"]
     if molecule == 'DNA':
         Pyr = Pyrimidines - {'Uracile'}
     elif molecule == 'RNA':
         Pyr = Pyrimidines - {'Thymine'}
-    else:
-        print('Unknown Molecule')
     NBF = Pur | Pyr
     NBC = set()
     for code in NBF:
@@ -73,12 +121,33 @@ def nitrogen_base(molecule):
 #     return random_string
 
 
-# In[6]:
+# In[35]:
+
+
+result2 = nitrogen_base2("DNA")
+result2
+
+
+# In[82]:
 
 
 def main():
     st.title("07311940000046_Agra Bima Yuda_Genomics Computation_Homework 1")
-    select = st.radio("Select an RNA or DNA sequence.", ("DNA", "RNA"))
+    select = st.radio("Select an RNA or DNA sequence.", Nucleic_Acid)
+    if select == "DNA":
+        st.write('You selected DNA.')
+    else:
+        st.write("You selected RNA.")
+    
+#     genre = st.radio(
+#     "What's your favorite movie genre",
+#     [":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"],
+#     captions = ["Laugh out loud.", "Get the popcorn.", "Never stop learning."])
+
+# if genre == ':rainbow[Comedy]':
+#     st.write('You selected comedy.')
+# else:
+#     st.write("You didn\'t select comedy.")
     
 if __name__ == "__main__":
     main()
