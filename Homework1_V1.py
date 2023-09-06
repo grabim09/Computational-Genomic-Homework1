@@ -254,7 +254,7 @@ def generate_random_sequence(acid,length):
 
 
 def split_into_codon(random_sequence):
-    split_codon = [str[i:i+3] for i in range(0,len(random_sequence),3)]
+    split_codon = [random_sequence[i:i+3] for i in range(0,len(random_sequence),3)]
     return split_codon
 
 
